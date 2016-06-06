@@ -145,7 +145,13 @@ Luồng trạng thái của Glance cho biết trạng thái của image trong qu
 <li>deleted: Trạng thái này biểu thị việc Glance vẫn giữ thông tin về image nhưng nó không còn sẵn sàng để sử dụng nữa. Image ở trạng thái này sẽ tự động bị gỡ bỏ vào ngày hôm sau.</li>
 </ul>
 <a name="6"></a>
-###6. File cấu hình của image:
+###6. File cấu hình của Glance:
+
+<ul>
+<li><b>Glance-api.conf:</b>
+File cấu hình API của image service
+</li>
+
 
 
 
