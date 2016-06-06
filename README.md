@@ -157,6 +157,9 @@ File cấu hình cho glance image registry - nơi lưu trữ metadata về các 
 <li><b>glance-scrubber.conf: </b>
 Tiện ích sử dụng để dọn sạch các images đã ở trạng thái "deleted".  Nhiều glance-scrubber có thể chạy trong triển khai, tuy nhiên chỉ có một scrubber được thiết lập để "dọn dẹp" cấu hình trong file "scrubber.conf". Clean-up scrubber này kết hợp với các scrubber khác  bằng cách duy trì một hàng đợi chính của các images cần được loại bỏ.  Tệp glance-scrubber.conf cũng đặc tả cấu hình các giá trị quan trọng như khoảng thời gian giữa các lần chạy, thời gian chờ của các images trước khi bị xóa. Glance-scrubber có thể chạy theo định kỳ hoặc có thể chạy như một daemon trong khoảng thời gian dài.
 </li>
+<li>
+<b>policy.json </b>
+File tùy chọn được thêm vào để điều khiển truy cập áp dụng với image service. Trong file này ta có thể định nghĩa các roles và policies. Nó là tính năng bảo mật trong OpenStack Glance</li>
 
 
 
