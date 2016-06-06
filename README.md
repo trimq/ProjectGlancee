@@ -37,25 +37,26 @@ Glance là 1 Project trong Openstack, được sinh ra để cung cấp dịch v
 ###2. Glance Components:
 Glance có các thành phần như sau:
 <ul>
-		**Glance API**: <li>Cho phép các API có thể tìm kiếm, nhận và lưu trữ các Virtual Machine image.</li>
-		**Glance registry**: <li>Lưu trữ và nhận thông tin về các image.</li>
-		- **Glance database**: Là nơi lưu trữ các image metadata.
-		- **Storage repository**: Là thành phần tích hợp với các hệ thống lưu trữ bên ngoài khác như file systems, Amazon S3 và HTTP.
+		<li>Glance API:Cho phép các API có thể tìm kiếm, nhận và lưu trữ các Virtual Machine image.</li>
+		<li>Glance registry:Lưu trữ và nhận thông tin về các image.</li>
+		<li>Glance database: Là nơi lưu trữ các image metadata.</li>
+		<li>Storage repository: Là thành phần tích hợp với các hệ thống lưu trữ bên ngoài khác như file systems, Amazon S3 và HTTP.</li>
 </ul>
 <img src="http://www.sparkmycloud.com/blog/wp-content/uploads/2016/01/Untitled-drawing2.png">
 Glance chấp nhận các yêu cầu API cho các images từ người dùng cuối (end-users) hoặc các thành phần Nova và có thể lưu trữ bằng dịch vụ Object storage, swift hoặc các dịch vụ lưu trữ khác.
 
 <ul>
-	<li>**File system**: Mặc định lưu trữ các VM images trong file system. Back-end này đơn giản là ghi lại file image vào file system</li>
-	<li>**Object Storage*: Các dịnh vụ Openstack có tính sẵn sàng cao để lưu trữ hướng đối tượng</li>
-	<li>**Block Storage**: Các dịch vụ Openstack có tính sẵn sàng cao để lưu trữ khối</li>
-	<li>**VMware**: ESX/ESXi or vCenter Server target system</li>
-	<li>**S3**: Amazon S3 service</li>
-	<li>**HTTP*: Openstack image service có thể đọc được virtual machine image có sẵn trên internet thông qua giao thức HTTP. Tuy nhiên, lưu trữ này chỉ có thể đọc được.</li>
-	<li>**RADOS Block Device (RBD)**: Lưu trữ image bên trong 1 cụm lưu trữ Ceph sử dụng Ceph’s RBD interface.</li>
-	<li>**Sheepdog**: 1 hệ thống lưu trữ phân phối cho QEMU/KVM</li>
-	<li>**GridFS**: Lưu trữ các images sử dụng MongoDB</li>
-<ul>
+	<li>File system: Mặc định lưu trữ các VM images trong file system. Back-end này đơn giản là ghi lại file image vào file system</li>
+	<li>Object Storage: Các dịnh vụ Openstack có tính sẵn sàng cao để lưu trữ hướng đối tượng</li>
+	<li>Block Storage: Các dịch vụ Openstack có tính sẵn sàng cao để lưu trữ khối</li>
+	<li>VMware: ESX/ESXi or vCenter Server target system</li>
+	<li>S3: Amazon S3 service</li>
+	<li>HTTP: Openstack image service có thể đọc được virtual machine image có sẵn trên internet thông qua giao thức HTTP. Tuy nhiên, lưu trữ này chỉ có thể đọc được.</li>
+	<li>RADOS Block Device (RBD): Lưu trữ image bên trong 1 cụm lưu trữ Ceph sử dụng Ceph’s RBD interface.</li>
+	<li>Sheepdog: 1 hệ thống lưu trữ phân phối cho QEMU/KVM</li>
+	<li>GridFS: Lưu trữ các images sử dụng MongoDB</li>
+</ul>
+
 <a name ="3"></a>	
 ###3. Glance Architecture:
 Glance có một kiến trúc client-server và cung cấp các REST API để thông qua đó yêu cầu server thực hiện. Yêu cầu từ máy client được chấp nhận thông qua REST API và chờ cho Keystone chứng thực. Glance domain controller quản lý tất cả các hoạt động nội bộ, nó được chia là các layer và mỗi layer có 1 nhiệm vụ riêng.Glance store là tầng giao tiếp giữa Glance và extenal storage back-end hoặc local file system và cung cấp 1 giao diện thống nhất để chấp thuận. Glance sử dụng SQL central database để có thể truy cập vào tất cả các thành phần trong hệ thống 
@@ -64,12 +65,13 @@ Glance có một kiến trúc client-server và cung cấp các REST API để t
 
 Glance gồm có 1 sô thành phần như:
 
-	- **Client**: Bất kì ứng dụng nào sử dụng Glance server.
-	- **REST API**: exposes Glance functionality via REST
-	- **Database Abstraction Layer (DAL)**: Là 1 giao diện ứng dụng trong đo hợp nhất các Glance và database
-	- **Glance Domain Controller**: Thực hiện các chức năng chính của Glance như: authorization, notifications, policies, database connections.
-	- **Glance Store**: Tạo ra sự tương tác giữa Glance và các data stores khác
-	- **Registry Layer**: Tùy chọn layer tạo ra thông tin liên lạc an toàn giữa Domain và DAL bằng cách sử dụng 1 dịch vụ riêng biệt.
+<ul>
+	<li>Client: Bất kì ứng dụng nào sử dụng Glance server.</li>
+	<li>REST API: exposes Glance functionality via REST</li>
+	<li>Database Abstraction Layer (DAL): Là 1 giao diện ứng dụng trong đo hợp nhất các Glance và database</li>
+	<li>Glance Domain Controller: Thực hiện các chức năng chính của Glance như: authorization, notifications, policies, database connections.</li>
+	<li>Glance Store: Tạo ra sự tương tác giữa Glance và các data stores khác</li>
+	<li>Registry Layer: Tùy chọn layer tạo ra thông tin liên lạc an toàn giữa Domain và DAL bằng cách sử dụng 1 dịch vụ riêng biệt.</li>
 
 
 <a name="3.1"></a>
@@ -105,7 +107,7 @@ Glance gồm có 1 sô thành phần như:
 
 - Khi ta thêm 1 image vào Glance, cần xác định được các định dạng disk formats hay container format của image.
 - Container format được coi là phần hồn của image và disk được coi là phần xác, bởi vì khi ta gọi 1 image, hệ thống sẽ đọc container format trước để biết thông tin của image(hệ điều hành, định dạng, nơi lưu trữ), khi nó đọc xong và xác định được thông tin của image thì nó mới gọi tiếp đến disk format. Việc này làm giảm thừoi gian xử lý bởi Container format nhẹ hơn disk format rất nhiều nên có thể đọc nhanh hơn.
--**Disk format**
+#####Disk format
 
 |Định dạng|Mô tả|
 |---------|-----|
@@ -117,7 +119,7 @@ Glance gồm có 1 sô thành phần như:
 |ISO|Định dạng nén của đĩa quang học|
 |AMI,ARI,AKI|Định dạng của Amazone|	
 
--*Container format*
+#####Container format
 |Định dạng|Mô tả|
 |---------|-----|
 |bare|không có container hay metadata trong đĩa|
