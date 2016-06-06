@@ -28,17 +28,20 @@ Glance là 1 Project trong Openstack, được sinh ra để cung cấp dịch v
 
 <a name="1.2"></a>
 ####1.2. Công dụng:
-	- Để lưu trữ các image, chuyển phát image tới Nova để bắt đầu instance, snapshot từ các instance đang chạy có thể được lưu trữ vì vậy máy ảo đó có thể được backup.
-	- Glance có các RESTful APT cho phép truy vấn các image metadata cũng như thu hồi các image hiện có.
-	- Các image đã có sẵn trong Glancen có thể được lưu trữ trong các nơi từ 1 file hệ thống đơn giản cho tói object storage
-	
+<ul>
+	<li> Để lưu trữ các image, chuyển phát image tới Nova để bắt đầu instance, snapshot từ các instance đang chạy có thể được lưu trữ vì vậy máy ảo đó có thể được backup.</li>
+	<li>Glance có các RESTful APT cho phép truy vấn các image metadata cũng như thu hồi các image hiện có.</li>
+	 <li>Các image đã có sẵn trong Glancen có thể được lưu trữ trong các nơi từ 1 file hệ thống đơn giản cho tói object storage</li>
+</ul>	
 <a name ="2"></a>
 ###2. Glance Components:
 Glance có các thành phần như sau:
+<ul>
 		- **Glance API**: Cho phép các API có thể tìm kiếm, nhận và lưu trữ các Virtual Machine image.
 		- **Glance registry**: Lưu trữ và nhận thông tin về các image.
 		- **Glance database**: Là nơi lưu trữ các image metadata.
 		- **Storage repository**: Là thành phần tích hợp với các hệ thống lưu trữ bên ngoài khác như file systems, Amazon S3 và HTTP.
+</ul>
 <img src="http://www.sparkmycloud.com/blog/wp-content/uploads/2016/01/Untitled-drawing2.png">
 Glance chấp nhận các yêu cầu API cho các images từ người dùng cuối (end-users) hoặc các thành phần Nova và có thể lưu trữ bằng dịch vụ Object storage, swift hoặc các dịch vụ lưu trữ khác.
 
