@@ -3,14 +3,14 @@
 
 ##Mục lục:
 ###[1.Tổng quan chung về Project Glance] (#1)
-	- [1.1. Khái niệm](#1.1)
-	- [1.2. Công dụng](#1.2)
+- [1.1. Khái niệm](#1.1)
+- [1.2. Công dụng](#1.2)
 	
 ###[2.Glance Components](#2)
 
 ###[3.Glance Architecture](#3)
-	- [3.1.Các khái niệm AuthN/AuthZ] (3.1#)
-	- [3.2.Khái niệm SSO] (#3.2)
+- [3.1.Các khái niệm AuthN/AuthZ] (3.1#)
+- [3.2.Khái niệm SSO] (#3.2)
 
 ###[4. Glance Formats](#4)
 
