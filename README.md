@@ -9,8 +9,8 @@
 ###[2.Glance Components](#2)
 
 ###[3.Glance Architecture](#3)
-- [3.1.Các khái niệm AuthN/AuthZ] (3.1#)
-- [3.2.Khái niệm SSO] (#3.2)
+- [3.1.Các khái niệm AuthN/AuthZ] (auth#)
+- [3.2.Khái niệm SSO] (sso3.2)
 
 ###[4. Glance Formats](#4)
 
@@ -72,10 +72,9 @@ Glance gồm có 1 sô thành phần như:
 	<li>Glance Domain Controller: Thực hiện các chức năng chính của Glance như: authorization, notifications, policies, database connections.</li>
 	<li>Glance Store: Tạo ra sự tương tác giữa Glance và các data stores khác</li>
 	<li>Registry Layer: Tùy chọn layer tạo ra thông tin liên lạc an toàn giữa Domain và DAL bằng cách sử dụng 1 dịch vụ riêng biệt.</li>
-
+</ul>
 
 <a name="3.1"></a>
-
 ####3.1. Khái niệm cơ bản về AuthN/AuthZ:
 **AuthN**
 - Xác thực người dùng
