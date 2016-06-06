@@ -151,6 +151,12 @@ Luồng trạng thái của Glance cho biết trạng thái của image trong qu
 <li><b>Glance-api.conf:</b>
 File cấu hình API của image service
 </li>
+<li><b>Glance-registry.conf: </b>
+File cấu hình cho glance image registry - nơi lưu trữ metadata về các images.
+</li>
+<li><b>glance-scrubber.conf: </b>
+Tiện ích sử dụng để dọn sạch các images đã ở trạng thái "deleted".  Nhiều glance-scrubber có thể chạy trong triển khai, tuy nhiên chỉ có một scrubber được thiết lập để "dọn dẹp" cấu hình trong file "scrubber.conf". Clean-up scrubber này kết hợp với các scrubber khác  bằng cách duy trì một hàng đợi chính của các images cần được loại bỏ.  Tệp glance-scrubber.conf cũng đặc tả cấu hình các giá trị quan trọng như khoảng thời gian giữa các lần chạy, thời gian chờ của các images trước khi bị xóa. Glance-scrubber có thể chạy theo định kỳ hoặc có thể chạy như một daemon trong khoảng thời gian dài.
+</li>
 
 
 
