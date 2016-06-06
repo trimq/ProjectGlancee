@@ -100,7 +100,9 @@ Glance gồm có 1 sô thành phần như:
 <li>Multi domain: Khi xác thực thành công vào abc.com thì người dùng cũng đồng thời được xác thực vào xyz.com</li>
 <li>Application vs Third-party product:Ví dụ SSO giữa IBM và Websphere Application server</li>
 </ul>
+
 <a name="4"></a>
+
 ###4.Glance Formats:
 <ul>
 - Khi ta thêm 1 image vào Glance, cần xác định được các định dạng disk formats hay container format của image.
@@ -135,12 +137,12 @@ Glance gồm có 1 sô thành phần như:
 Luồng trạng thái của Glance cho biết trạng thái của image trong quá trình tải lên. Khi tạo một image, bước đầu tiên là queing, image được đưa vào hàng đợi trong một khoảng thời gian ngắn, được bảo vệ và sẵn sàng để tải lên. Sau khi queuing image chuyển sang trạng thái Saving nghĩa là quá trình tải lên chưa hoàn thành. Một khi image được tải lên hoàn toàn, trạng thái image chuyển sang Active. Khi quá trình tải lên thất bại nó sẽ chuyển sang trạng thái bị hủy hoặc bị xóa. Ta có thể deactive và reactive các image đã upload thành công bằng cách sử dụng command. 
 <img src="http://www.sparkmycloud.com/blog/wp-content/uploads/2016/01/Untitled-drawing1.jpg">
 <ul>
--queued: Định danh của image được lưu giữ trong Glance registry. Không có dữ liệu nào của image được tải lên Glance và kích thước của image không được thiết lập rõ ràng sẽ được thiết lập về zero khi khởi tạo.
--saving: Trạng thái này biểu thị rằng dữ liệu thô của image đang upload lên Glance. Khi image được đăng ký với lời gọi POST /images và có một header đại diện x-image-meta-location, image đó sẽ không bao giờ được đưa và trạng thái "saving" (bởi vì dữ liệu của image đã có sẵn ở một nơi nào đó)
--**active**: Biểu thị trạng thái sẵn sàng của 1 image trong Glance. Trạng thái này được thiết lập khi dữ liệu của image được tải lên đầy đủ.
--**deactivated**: Trạng thái biểu thị việc không được phép truy cập vào dữ liệu của image với tài khoản không phải admin. Khi image ở trạng thái này, ta không thể tải xuống cũng như export hay clone image.
--**killed**: Trạng thái biểu thị rằng có vấn đề xảy ra trong quá trình tải dữ liệu của image lên và image đó không thể đọc được
--**deleted**: Trạng thái này biểu thị việc Glance vẫn giữ thông tin về image nhưng nó không còn sẵn sàng để sử dụng nữa. Image ở trạng thái này sẽ tự động bị gỡ bỏ vào ngày hôm sau.
+<li>queued: Định danh của image được lưu giữ trong Glance registry. Không có dữ liệu nào của image được tải lên Glance và kích thước của image không được thiết lập rõ ràng sẽ được thiết lập về zero khi khởi tạo.</li>
+<li>saving: Trạng thái này biểu thị rằng dữ liệu thô của image đang upload lên Glance. Khi image được đăng ký với lời gọi POST /images và có một header đại diện x-image-meta-location, image đó sẽ không bao giờ được đưa và trạng thái "saving" (bởi vì dữ liệu của image đã có sẵn ở một nơi nào đó)</li>
+<li>active: Biểu thị trạng thái sẵn sàng của 1 image trong Glance. Trạng thái này được thiết lập khi dữ liệu của image được tải lên đầy đủ.</li>
+<li>deactivated: Trạng thái biểu thị việc không được phép truy cập vào dữ liệu của image với tài khoản không phải admin. Khi image ở trạng thái này, ta không thể tải xuống cũng như export hay clone image.</li>
+<li>killed: Trạng thái biểu thị rằng có vấn đề xảy ra trong quá trình tải dữ liệu của image lên và image đó không thể đọc được</li>
+<li>deleted: Trạng thái này biểu thị việc Glance vẫn giữ thông tin về image nhưng nó không còn sẵn sàng để sử dụng nữa. Image ở trạng thái này sẽ tự động bị gỡ bỏ vào ngày hôm sau.</li>
 </ul>
 <a name="6"></a>
 ###6. File cấu hình của image:
