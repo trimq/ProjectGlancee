@@ -75,17 +75,16 @@ Glance gồm có 1 sô thành phần như:
 
 
 <a name="3.1"></a>
+
 ####3.1. Khái niệm cơ bản về AuthN/AuthZ:
 **AuthN**
-
-	- Xác thực người dùng
-	- Giao tiếp với danh tính người dùng, có 1 số lượng lớn các hệ thống để kiểm soát mức độ nhận dạng và quản lý người dùng
-	- Làm giảm tải số lượng thông tin người dùng cung cấp thông qua SSO
+- Xác thực người dùng
+- Giao tiếp với danh tính người dùng, có 1 số lượng lớn các hệ thống để kiểm soát mức độ nhận dạng và quản lý người dùng
+- Làm giảm tải số lượng thông tin người dùng cung cấp thông qua SSO
 
 **AuthZ**
-
-	- Trả lời câu hỏi liên quan đến những thiết lập khác nhau, những gì người dùng hay hệ thống được phép truy cập
-	- 1 nền tảng AuthZ có thể xác định 1 người dùng là 1 developer, sau đó nó sẽ cấo phép của mình để đẩy mã nguồn lên git, những không được sửa đổi các phần mềm triển khai hoặc môi trường sản xuất
+- Trả lời câu hỏi liên quan đến những thiết lập khác nhau, những gì người dùng hay hệ thống được phép truy cập
+- 1 nền tảng AuthZ có thể xác định 1 người dùng là 1 developer, sau đó nó sẽ cấo phép của mình để đẩy mã nguồn lên git, những không được sửa đổi các phần mềm triển khai hoặc môi trường sản xuất
 
 
 <a name="3.2"></a>
